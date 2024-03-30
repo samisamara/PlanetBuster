@@ -11,11 +11,8 @@ import SwiftUI
 struct PlanetBusterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Areas()
         }
-
-        ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView()
-        }.immersionStyle(selection: .constant(.full), in: .full)
+        .windowStyle(.automatic)
     }
 }
