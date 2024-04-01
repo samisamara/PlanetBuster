@@ -10,27 +10,29 @@ import SwiftUI
 struct NavigationToAreas: View {
     var body: some View {
         VStack {
-            NavigationLink {
-                Text("Hello World 1 Nav 1")
-            } label : {
-                Label("Planet", systemImage: "chevron.right")
+            Text("Welcome to Planet Buster!")
+                .monospaced()
+                .font(.system(size: 40, weight: .bold))
+                .padding(.bottom, 150)
+            
+            HStack (spacing: 25) {
+                ForEach(Area.allCases) { area in
+                    NavigationLink {
+                        Text(area.title)
+                            .monospaced()
+                            .font(.system(size: 40, weight: .bold))
+                    } label: {
+                        Label(area.name, systemImage: "chevron.right")
+                            .monospaced()
+                            .font(.title)
+                    }
+                    .controlSize(.extraLarge)
+                }
+                
             }
-            
-            
-            
-            
-            
-            NavigationLink {
-                Text("Hello World 2 Nav 2")
-            } label : {
-                Label("About", systemImage: "chevron.right")
-            }
-            
-            NavigationLink {
-                Text("Hello World 3 Nav 3")
-            } label : {
-                Label("Contact", systemImage: "chevron.right")
-            }
+        }
+        .background() {
+            Image("titleSpaceBG")
         }
     }
 }
